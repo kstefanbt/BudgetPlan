@@ -1,0 +1,128 @@
+﻿@page
+@using Microsoft.AspNetCore.Components
+@model BudgetPlan.Pages.Grid.IndexModel
+@{
+}
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+    }
+    table {
+        width: auto;
+        table-layout:auto;
+    }
+    th, td{
+        min-width:5%;
+
+    }
+</style>
+<br>
+<h2>Grid View</h2>
+<table>
+    <thead>
+        <tr>
+            <th border=1 rowspan=2 scope="rowgroup"></th>
+            @foreach (var item in Model.Infos)
+            {
+                <th border=1 colspan=2 scope="colgroup">
+                    @item.Date
+                </th>
+            }
+        </tr>
+        <tr>
+            @foreach (var item in Model.Infos)
+            {
+                <th border=1 scope="col">@Model.TypeValues[0]</th>
+                <th border=1 scope="col">@Model.TypeValues[1]</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Salary</td>
+            @foreach (var item in Model.Infos)
+            {
+                <td>@item.IncomeAmount1Real</td>
+                <td>@item.IncomeAmount1Planned</td>
+            }
+        </tr>
+        <tr>
+            <td>Transport</td>
+            @foreach (var item in Model.Infos)
+            {
+                <td>@item.IncomeAmount2Real</td>
+                <td>@item.IncomeAmount2Planned</td>
+            }
+        </tr>
+        <tr>
+            <td>Other</td>
+            @foreach (var item in Model.Infos)
+            {
+                <td>@item.IncomeAmount3Real</td>
+                <td>@item.IncomeAmount3Planned</td>
+            }
+        </tr>
+        <tr style="font-weight: bold;">
+            <td>Incomes</td>
+            @foreach (var item in Model.Infos)
+            {
+                <td>@item.TotalRealIncomes</td>
+                <td>@item.TotalPlannedIncomes</td>
+            }
+        </tr>
+        <tr>
+            <td>Food</td>
+            @foreach(var item in Model.Infos)
+            {
+                <td>@item.ExpenseAmount1Real</td>
+                <td>@item.ExpenseAmount1Planned</td>
+            }
+        </tr>
+        <tr>
+            <td>Transport</td>
+            @foreach (var item in Model.Infos)
+            {
+                <td>@item.ExpenseAmount2Real</td>
+                <td>@item.ExpenseAmount2Planned</td>
+            }
+        </tr>
+        <tr>
+            <td>Bills</td>
+            @foreach (var item in Model.Infos)
+            {
+                <td>@item.ExpenseAmount3Real</td>
+                <td>@item.ExpenseAmount3Planned</td>
+            }
+        </tr>
+        <tr>
+            <td>Other</td>
+            @foreach (var item in Model.Infos)
+            {
+                <td>@item.ExpenseAmount4Real</td>
+                <td>@item.ExpenseAmount4Planned</td>
+            }
+        </tr>
+        <tr style="font-weight: bold;">
+            <td>Expenses</td>
+            @foreach (var item in Model.Infos)
+            {
+
+                <td>@item.TotalRealExpenses</td>
+                <td>@item.TotalPlannedExpenses</td>
+            }
+        </tr>
+        
+        <tr style="font-weight: bold;">
+            <td>Profit</td>
+            @foreach (var item in Model.Infos)
+            {
+                <td>@item.RealProfit</td>
+                <td>@item.PlannedProfit</td>
+            }
+        </tr>
+
+    </tbody>
+</table>
